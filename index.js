@@ -6,7 +6,7 @@
 //Let's use fetch to access and modify a database through a WebApi using GET, POST, PUT, DELETE requests
 //Le'ts use my WebApi generating random customers and orders, using a mySQL database version called MariaDb
 
-const urlBase = "https://localhost:7249";
+const urlBase = "https://localhost:41532";
 
 const urlID = urlBase + "/id";
 const urlLogin = urlBase + "/api/login";
@@ -107,7 +107,7 @@ async function myFetch(url, method = null, body = null) {
   await myFetch(`${urlFriends}/${friend.friendID}?apiKey=${apiKey}`, 'DELETE');
   
   //confirm that the friend no longer exist in the database
-  data = await myFetch(`${urlFriends}/${friend.friendID}`);
+  data = await myFetch(`${urlFriends}/${friend.friendID}?apiKey=${apiKey}`);
   if (data == null) {
 
     console.log("`friend ${friendID} does not exist");
